@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+
+<script>
+
+function getComputerChoice() {
+    // if (0 <= num && num < 1) {
+    //     choice = "rock";
+    //     console.log(`The Machine Chose Rock ${num} ${choice}`);
+    //     return choice;
+    // } else if ( 1 <= num && num < 2) {
+    //     choice = "paper";
+    //     console.log(`The Machine Chose Paper ${num} ${choice}`);
+    //     return choice;
+    // } else if ( 2 <= num && num < 3) {
+    //     choice = "scissors";
+    //     console.log(`The Machine Chose Scissors ${num} ${choice}`);
+    //     return choice;
+    // } else {
+    //     console.log(`Error`);
+    //     return null;
+    // }
+    let num = Math.random()*3;
+    let choice = (0 <= num && num < 1) ? "rock" : 
+                 (1 <= num && num < 2) ? "paper" :
+                 (2 <= num && num < 3) ? "scissors" :
+                 "Error";
+    return choice;
+
+}
+
+// console.log(getComputerChoice());
+
+function playRound(playerSelection,computerSelection){
+let getPlayerChoice = prompt("Choose Rock,Paper or Scissors to Play!!");
+getPlayerChoice = getPlayerChoice.toLowerCase();
+playerSelection = getPlayerChoice;
+computerSelection = getComputerChoice();
+let result;
+if (playerSelection === computerSelection) {
+    result = console.log(`It's a Tie!!! You Chose ${playerSelection.toUpperCase()} and the Computer Chose ${computerSelection.toUpperCase()} too.`);
+    return result;
+} else if ( (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
+    result = console.log(`You Win!!! You Chose ${playerSelection.toUpperCase()} and the Computer Chose ${computerSelection.toUpperCase()}.`);
+    return result;
+}else if ( (computerSelection === "rock" && playerSelection === "scissors") || (computerSelection === "paper" && playerSelection === "rock") || (computerSelection === "scissors" && playerSelection === "paper")) {
+    result = console.log(`You Lose!!! You Chose ${playerSelection.toUpperCase()} and the Computer Chose ${computerSelection.toUpperCase()}.`);
+    return result;
+}else {
+    console.log(`Error`);
+    return null;
+}
+}
+function game() {
+    playRound()
+    playRound()
+    playRound()
+    playRound()
+    playRound()
+}
+game()
+
+
+</script>
+    
+</body>
+</html>
