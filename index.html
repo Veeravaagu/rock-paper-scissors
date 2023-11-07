@@ -12,41 +12,27 @@
 function getComputerChoice() 
 
 {
-    // if (0 <= num && num < 1) {
-    //     choice = "rock";
-    //     console.log(`The Machine Chose Rock ${num} ${choice}`);
-    //     return choice;
-    // } else if ( 1 <= num && num < 2) {
-    //     choice = "paper";
-    //     console.log(`The Machine Chose Paper ${num} ${choice}`);
-    //     return choice;
-    // } else if ( 2 <= num && num < 3) {
-    //     choice = "scissors";
-    //     console.log(`The Machine Chose Scissors ${num} ${choice}`);
-    //     return choice;
-    // } else {
-    //     console.log(`Error`);
-    //     return null;
-    // }
     
     let randNum = Math.random()*3;
     
     let computerChoice = 
     
+    // if the number is between 0 and 1(exclusive) assign rock
     (0 <= randNum && randNum < 1) ? "rock" : 
-                         
+    
+    // if the number is between 1 and 2(exclusive) assign paper                    
     (1 <= randNum && randNum < 2) ? "paper" :
-                         
+    
+    // if the number is between 2 and 3(exclusive) assign scissors                     
     (2 <= randNum && randNum < 3) ? "scissors" :
-                         
+    
+    // There will be no error but you need a falsy value                    
     "Error";
     
                          
     return computerChoice;
 
 }
-
-// console.log(getComputerChoice());
 
 function playRound(playerSelection,computerSelection)
 
@@ -61,31 +47,53 @@ function playRound(playerSelection,computerSelection)
     computerSelection = getComputerChoice();
 
     let result;
-
-    if (playerSelection === computerSelection) {
+    // condition for a tie
+    if (playerSelection === computerSelection) 
+    
+    {
     
         result = console.log(`It's a Tie!!! You Chose ${playerSelection.toUpperCase()} and the Computer Chose ${computerSelection.toUpperCase()} too.`);
     
         return result;
 
-    } 
-    else if ( (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
+    }
+    // condition for player to win 
+    else if ( 
+        
+        (playerSelection === "rock" && computerSelection === "scissors") || 
+        
+        (playerSelection === "paper" && computerSelection === "rock") || 
+        
+        (playerSelection === "scissors" && computerSelection === "paper")) 
+    
+    {
     
         result = console.log(`You Win!!! You Chose ${playerSelection.toUpperCase()} and the Computer Chose ${computerSelection.toUpperCase()}.`);
     
         return result;
 
     }
-    else if ( (computerSelection === "rock" && playerSelection === "scissors") || (computerSelection === "paper" && playerSelection === "rock") || (computerSelection === "scissors" && playerSelection === "paper")) {
+    // condition for computer to win
+    else if ( 
+        
+        (computerSelection === "rock" && playerSelection === "scissors") || 
+        
+        (computerSelection === "paper" && playerSelection === "rock") || 
+        
+        (computerSelection === "scissors" && playerSelection === "paper")) 
+    
+    {
     
         result = console.log(`You Lose!!! You Chose ${playerSelection.toUpperCase()} and the Computer Chose ${computerSelection.toUpperCase()}.`);
     
         return result;
 
     }
-    else {
+
+    else 
+    {
     
-        console.log(`Error`);
+        console.log(`You've made a typo!!!`);
     
         return null;
 
