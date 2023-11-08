@@ -114,7 +114,7 @@ function playRound(playerSelection,computerSelection)
     
     {
     //    alert is there for when the user clicks any three buttons accidentally for the sixth time
-       alert("would you like to restart?");
+       alert("Would you like to Restart?");
        
        isRestart()
     //    Update the Scorecard Tally

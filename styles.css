@@ -4,23 +4,34 @@
     box-sizing: border-box;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 1440px;
-    height: 600px;
-    flex-wrap: wrap;
 
 }
+.scorecard-container{
+    width: 1440px;
+    height: 200px;
+}
+
+.button-container {
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+.footer {
+    display: flex;
+    width: 1440px;
+    height: 115px;
+}
+
+img {
+    width: 100px;
+    height: 100px;}
+
 .button{
     width: 1000px;
     height: 400px;
@@ -28,67 +39,27 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 150px;
-    flex-wrap: wrap;
+    gap: 100px;
+    flex-wrap: wrap;    
 }
-
-
 
 button {
-width: 200px;
-height: 200px;
-border-radius: 120px;
-
-}
-
-.Scissors{
+    width: 200px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-
+    border-radius: 20px;
 }
 
-.scissors {
-    width: 100px;
-    height: 100px;
+
+.but {
+    flex: 0 1 1;
 }
 
-.Paper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-
-}
-
-.paper {
-    width: 100px;
-    height: 100px;
-    margin: 0 5px 0 0;
-}
-
-.Rock{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-
-}
-
-.rock {
-    width: 100px;
-    height: 100px;
-}
-
-h1{font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin: 0 0 0 400px;
-}
-
-.Restart {
-    margin: 120px 0 0 0;
-    font-size: large;
+h1 {
+height: 150px;
+text-align: center;
+margin: 50px 0 0 0;
 }
