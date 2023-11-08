@@ -1,29 +1,48 @@
 let getPlayerChoice;
 
+let playerCount = 0;
+
+let computerCount = 0;
+
 let rock = document.querySelector(".Rock");
+
 let paper = document.querySelector(".Paper");
+
 let scissors = document.querySelector(".Scissors");
 
-// rock.addEventListener('click', playRound);
+let restart = document.querySelector(".Restart");
+
+restart.addEventListener('click',isRestart);
+
 rock.addEventListener('click', isRock);
+
 paper.addEventListener('click', isPaper);
+
 scissors.addEventListener('click', isScissors);
 
+alert("\nThe First One to Reach Five Wins!!!! \n\nGood Luck!")
 
 function isRock () {
     getPlayerChoice = "rock";
+    
     playRound()
 }
 
 function isPaper () {
     getPlayerChoice = "paper";
+    
     playRound()
 }
 
 function isScissors () {
     getPlayerChoice = "scissors";
+    
     playRound()
 }
+
+function isRestart() 
+ {   console.log (` score is ${playerCount} to ${computerCount}`); 
+                            playerCount = 0; computerCount = 0;}
 
 
 function getComputerChoice() 
@@ -51,6 +70,7 @@ function getComputerChoice()
 
 }
 
+
 function playRound(playerSelection,computerSelection)
 
 {
@@ -61,70 +81,85 @@ function playRound(playerSelection,computerSelection)
     computerSelection = getComputerChoice();
 
     let result;
-    // condition for a tie
-    if (playerSelection === computerSelection) 
+
+    if ( playerCount === 5 || computerCount === 5) 
     
     {
+       
+       alert("would you like to restart?");
+       isRestart()
     
-        result = console.log(`It's a Tie!!! You Chose ${playerSelection.toUpperCase()} and the Computer Chose ${computerSelection.toUpperCase()} too.`);
-    
-        return result;
-
     }
-    // condition for player to win 
-    else if ( 
-        
-        (playerSelection === "rock" && computerSelection === "scissors") || 
-        
-        (playerSelection === "paper" && computerSelection === "rock") || 
-        
-        (playerSelection === "scissors" && computerSelection === "paper")) 
+    
+    else
     
     {
+          // condition for a tie
+          if (playerSelection === computerSelection) 
     
-        result = console.log(`You Win!!! You Chose ${playerSelection.toUpperCase()} and the Computer Chose ${computerSelection.toUpperCase()}.`);
-    
-        return result;
+          {
+      
+            
+      
+  
+          }
+      // condition for player to win 
+          else if ( 
+          
+              (playerSelection === "rock" && computerSelection === "scissors") || 
+          
+              (playerSelection === "paper" && computerSelection === "rock") || 
+          
+              (playerSelection === "scissors" && computerSelection === "paper")) 
+      
+          {
+              playerCount += 1
 
+              if (playerCount === 5){
+                alert(`You Win, the score is ${playerCount} to ${computerCount}`); 
+           }
+  
+           
+  
+          }
+      // condition for computer to win
+          else if ( 
+          
+              (computerSelection === "rock" && playerSelection === "scissors") || 
+          
+              (computerSelection === "paper" && playerSelection === "rock") || 
+          
+              (computerSelection === "scissors" && playerSelection === "paper")) 
+      
+          {
+              computerCount += 1;
+
+              if (computerCount === 5){
+                alert(`You Lose, the score is ${playerCount} to ${computerCount}`); 
+           }
+  
+            
+  
+          }
+  
+          else 
+          {
+      
+              alert(`You've made a typo!!!`);
+      
+              return null;
+  
+          }
+     
     }
-    // condition for computer to win
-    else if ( 
-        
-        (computerSelection === "rock" && playerSelection === "scissors") || 
-        
-        (computerSelection === "paper" && playerSelection === "rock") || 
-        
-        (computerSelection === "scissors" && playerSelection === "paper")) 
+    console.log (`Your score is ${playerCount} and the Computer's score is ${computerCount}`);
     
-    {
-    
-        result = console.log(`You Lose!!! You Chose ${playerSelection.toUpperCase()} and the Computer Chose ${computerSelection.toUpperCase()}.`);
-    
-        return result;
+    return
 
-    }
-
-    else 
-    {
     
-        console.log(`You've made a typo!!!`);
-    
-        return null;
-
-    }
 
 }
 
-// function game() 
 
-// {
-//     playRound()
-//     playRound()
-//     playRound()
-//     playRound()
-//     playRound()
 
-// }
-
-// game()
 
