@@ -6,11 +6,15 @@ let playerCount = 0;
 
 let computerCount = 0;
 
+let tieCount = 0;
+
 // ------->>>>>>>>>>>>>>Reference DOMs
 
 let playerDisplay = document.querySelector(".playerDisplay");
 
 let computerDisplay = document.querySelector(".computerDisplay");
+
+let tieDisplay = document.querySelector(".tieDisplay");
 
 let rock = document.querySelector(".Rock");
 
@@ -57,10 +61,14 @@ function isRestart() {
     playerCount = 0; 
     
     computerCount = 0;
+
+    tieCount = 0;
     
     playerDisplay.textContent = playerCount;
        
     computerDisplay.textContent = computerCount;
+    
+    tieDisplay.textContent = tieCount;
     
 }
 
@@ -113,6 +121,8 @@ function playRound(playerSelection,computerSelection)
        playerDisplay.textContent = playerCount;
        
        computerDisplay.textContent = computerCount;
+
+       tieDisplay.textContent = tieCount;
     
     }
     
@@ -124,7 +134,9 @@ function playRound(playerSelection,computerSelection)
     
           {
       
-            
+            tieCount += 1;
+
+            tieDisplay.textContent = tieCount;
       
   
           }
@@ -138,7 +150,7 @@ function playRound(playerSelection,computerSelection)
               (playerSelection === "scissors" && computerSelection === "paper")) 
       
           {
-              playerCount += 1
+              playerCount += 1;
               
               
 
